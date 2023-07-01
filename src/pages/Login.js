@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import cart from "../images/cart.jpg";
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [pass, setPass] = useState("");
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -44,7 +46,7 @@ const Login = () => {
       <div className="pt-5 mt-5 w-50 container d-flex mx-auto text-center ">
         <div
           style={{ height: 300 }}
-          className="w-25 mt-5 bg-warning d-none d-md-block"
+          className="col-lg-4 mt-5 bg-warning d-none d-md-block"
         >
           <h5 className=" pt-5" />
           <Link to="/">
@@ -60,7 +62,7 @@ const Login = () => {
           <p className=" mt-4">The best online shop..</p>
         </div>
 
-        <div className=" mt-5 w-75 shadow-lg p-3 mb-5 bg-body rounded ">
+        <div className=" mt-5 col-lg-8 shadow-lg p-3 mb-5 bg-body rounded ">
           <form className="">
             <h4 className="text-center mb-4">Welcome..</h4>
             <div className="mb-3">
@@ -70,6 +72,7 @@ const Login = () => {
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
                 placeholder="Enter your email"
+                required
               />
             </div>
             <div className="mb-3">
@@ -78,12 +81,13 @@ const Login = () => {
                 className="form-control"
                 id="exampleInputPassword1"
                 placeholder="Enter your password"
+                required
               />
             </div>
             <button type="submit" className="btn btn-outline-warning w-100 mt-4">
               Sign in
             </button>
-            <div className="d-flex mt-2">
+            <div className="d-flex mt-3">
               <p className="m-1">Not registered?</p>
               <Link className="mt-1" to="/sign-up">
                 sign up

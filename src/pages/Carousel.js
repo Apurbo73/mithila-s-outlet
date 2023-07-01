@@ -5,7 +5,7 @@ const image3 ='https://www.zealousweb.com/wp-content/uploads/2021/11/best-paymen
 const image4= 'https://androidjunglee.com/wp-content/uploads/2015/06/big-app-shoppings-android-phones.jpg'
 const Carousel = () => {
     return (
-        <div className=' mt-4 pt-4'>
+        <div className=' mt-4 pt-5'>
             
 
                     <div id="carouselExampleCaptions" className="carousel slide" data-bs-ride="carousel">

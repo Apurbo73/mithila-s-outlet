@@ -1,14 +1,64 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BiShow } from "react-icons/bi";
 import { BiHide } from "react-icons/bi";
 import cart from "../images/cart.jpg";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+// const url="http://localhost:8080/";
 const SignUp = () => {
+  const navigate = useNavigate();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [pass, setPass] = useState("");
+  const [confirmPass, setConfirmPass] = useState("");
+  const data = {
+    name,
+    email,
+    pass,
+    confirmPass
+  };
+  console.log(data)
   //handle show password:
+  console.log(process.env.REACT_APP_SERVER_DOMIN);
   const [show, setShow] = useState(false);
   // handle Show click:
   const handleShow = () => {
     setShow(!show);
+  };
+  //handle Submit:
+  // toast(url)
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (pass === confirmPass) {
+      const fetchData = await fetch(
+        `${process.env.REACT_APP_SERVER_DOMIN}/signup`,
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json"
+          },
+          body: JSON.stringify(data)
+        }
+      );
+
+      const ok = await fetchData.json();
+      toast(ok.message);
+      toast("Successfully Registered");
+      navigate("/login");
+      resetForm();
+
+    } else {
+      toast("Password and Confirm password are not matching");
+    }
+    resetForm();
+  };
+  //reset form"
+  const resetForm = () => {
+    setName("");
+    setEmail("");
+    setPass("");
+    setConfirmPass("");
   };
   return (
     <div>
@@ -49,10 +99,10 @@ const SignUp = () => {
           </div>
         </div>
       </nav>
-      <div className="pt-5 w-50 container d-flex mx-auto text-center ">
+      <div className="pt-5 w-50  d-flex mx-auto text-center ">
         <div
           style={{ height: 394 }}
-          className="w-25 mt-5 bg-warning d-none d-md-block"
+          className="col-lg-4 mt-5 bg-warning d-none d-md-block"
         >
           <h5 className=" pt-5" />
           <Link to="/">
@@ -66,8 +116,9 @@ const SignUp = () => {
           <h6 className="mt-3">Mithila's Outlet</h6>
           <p className=" mt-4">The best online shop..</p>
         </div>
-        <div className="mt-5 w-75 shadow-lg p-3 mb-5 bg-body rounded">
-          <form className="">
+        <div className="mt-5  col-lg-8 shadow-lg p-3 mb-5 bg-body rounded">
+          <form onSubmit={handleSubmit}>
+            <ToastContainer />
             <h4 className="text-center mb-3">Register Yourself</h4>
             <div className="mb-3">
               <input
@@ -76,6 +127,11 @@ const SignUp = () => {
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
                 placeholder="Enter your name"
+                required
+                value={name}
+                onChange={e => {
+                  setName(e.target.value);
+                }}
               />
             </div>
             <div className="mb-3">
@@ -85,6 +141,11 @@ const SignUp = () => {
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
                 placeholder="Enter your email"
+                required
+                value={email}
+                onChange={e => {
+                  setEmail(e.target.value);
+                }}
               />
             </div>
 
@@ -93,8 +154,13 @@ const SignUp = () => {
                 type={show ? "text" : "password"}
                 className="form-control"
                 id="exampleInputEmail1"
+                required
                 aria-describedby="emailHelp"
                 placeholder="Enter your password"
+                value={pass}
+                onChange={e => {
+                  setPass(e.target.value);
+                }}
               />
               <span onClick={handleShow}>
                 {show ? <BiShow /> : <BiHide />}
@@ -106,8 +172,13 @@ const SignUp = () => {
                 type={show ? "text" : "password"}
                 className="form-control"
                 id="exampleInputEmail1"
-                aria-describedby="emailHelp"
+                // aria-describedby="emailHelp"
                 placeholder="Confirm your password"
+                required
+                value={confirmPass}
+                onChange={e => {
+                  setConfirmPass(e.target.value);
+                }}
               />
               <span onClick={handleShow}>
                 {show ? <BiShow /> : <BiHide />}

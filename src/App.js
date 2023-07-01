@@ -1,12 +1,15 @@
-import React from 'react';
+import React from "react";
 
-import './App.css';
-import Home from './pages/Home';
+import "./App.css";
+import Home from "./pages/Home";
+import { useGetGroceryQuery } from "./features/apiSlice";
 
 function App() {
+  const { data: allData, isLoading, isError, error } = useGetGroceryQuery();
+
   return (
     <div className="App">
-      <Home></Home>
+      {allData && <Home allData={allData} />}
     </div>
   );
 }

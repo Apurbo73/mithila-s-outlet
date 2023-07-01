@@ -1,3 +1,10 @@
 body{
     background-color: rgb(238, 244, 252);
 }
+.image:hover{
+    transform: scale(1.3);
+    transition: 0.5s ease-in-out;
+}
+.image-card{
+    background-color: bisque;
+}
