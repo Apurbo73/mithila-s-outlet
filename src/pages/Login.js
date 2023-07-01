@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import cart from '../images/cart.jpg';
+import cart from "../images/cart.jpg";
 const Login = () => {
   return (
     <div>
@@ -42,15 +42,25 @@ const Login = () => {
         </div>
       </nav>
       <div className="pt-5 w-50 container d-flex mx-auto text-center ">
-        <div style={{ height: 300 }} className="w-50 mt-5 bg-warning">
-          <h4 className="mt-5 pt-5">Mithila's Outlet</h4>
-          <img className="rounded-circle" style={{height:100}} src={cart} alt="" />
-          <p className=" pt-4">The best online shop near you..</p>
+        <div
+          style={{ height: 300 }}
+          className="w-25 mt-5 bg-warning d-none d-md-block"
+        >
+          <h5 className=" pt-5" />
+          <Link to="/">
+            <img
+              className="rounded-circle mt-3"
+              style={{ height: 100 }}
+              src={cart}
+              alt=""
+            />
+          </Link>
+          <p className=" mt-4">The best online shop..</p>
         </div>
 
-        <div className=" mt-5 w-50 shadow-lg p-3 mb-5 bg-body rounded ">
-          <form className=" pb-5">
-            <h3 className="text-center">Sign in</h3>
+        <div className=" mt-5 w-75 shadow-lg p-3 mb-5 bg-body rounded ">
+          <form className="">
+            <h3 className="text-center mb-4">Mithila's Outlet</h3>
             <div className="mb-3">
               <input
                 type="email"
@@ -68,12 +78,12 @@ const Login = () => {
                 placeholder="Enter your password"
               />
             </div>
-            <button type="submit" className="btn btn-warning w-100 ">
-              Submit
+            <button type="submit" className="btn btn-outline-warning w-100 mt-4">
+              Sign in
             </button>
-            <div className="d-flex">
+            <div className="d-flex mt-2">
               <p className="m-1">Not registered?</p>
-              <Link className="m-1" to="/sign-up">
+              <Link className="mt-1" to="/sign-up">
                 sign up
               </Link>
             </div>

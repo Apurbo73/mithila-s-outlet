@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { BiShow } from "react-icons/bi";
 import { BiHide } from "react-icons/bi";
-
+import cart from "../images/cart.jpg";
 const SignUp = () => {
+  //handle show password:
+  const [show, setShow] = useState(false);
+  // handle Show click:
+  const handleShow = () => {
+    setShow(!show);
+  };
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -43,58 +49,85 @@ const SignUp = () => {
           </div>
         </div>
       </nav>
-
-      <form className="mx-auto w-50 mt-5 mb-5 shadow-lg p-3  bg-body rounded">
-        <h3 className="text-center mb-3">Fill Up The Form</h3>
-        <div className="mb-3">
-          <input
-            type="text"
-            className="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-            placeholder="Enter your name"
-          />
-        </div>
-        <div className="mb-3">
-          <input
-            type="email"
-            className="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-            placeholder="Enter your email"
-          />
-        </div>
-        <div className="mb-3 d-flex ">
-          <input
-            type="password"
-            className="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-            placeholder="Enter your password"
-          />
-          <span>
-            <BiShow /> <BiHide />
-          </span>
-        </div>
-        <div className="mb-3">
-          <input
-            type="password"
-            className="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-            placeholder="Confirm your password"
-          />
-        </div>
-        <button type="submit" className="btn btn-warning w-100 mb-3">
-          Sign Up
-        </button>
-        <div className="d-flex">
-          <p className="m-1">Registered?</p>
-          <Link className="m-1" to="/login">
-            sign in
+      <div className="pt-5 w-50 container d-flex mx-auto text-center ">
+        <div
+          style={{ height: 396 }}
+          className="w-25 mt-5 bg-warning d-none d-md-block"
+        >
+          <h5 className=" pt-5" />
+          <Link to="/">
+            <img
+              className="rounded-circle mt-5"
+              style={{ height: 100 }}
+              src={cart}
+              alt=""
+            />
           </Link>
+          <p className=" mt-4">The best online shop..</p>
         </div>
-      </form>
+        <div className="mt-5 w-75 shadow-lg p-3 mb-5 bg-body rounded">
+          <form className="">
+            <h4 className="text-center mb-3">Register Yourself</h4>
+            <div className="mb-3">
+              <input
+                type="text"
+                className="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                placeholder="Enter your name"
+              />
+            </div>
+            <div className="mb-3">
+              <input
+                type="email"
+                className="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                placeholder="Enter your email"
+              />
+            </div>
+
+            <div className="mb-3 d-flex ">
+              <input
+                type={show ? "text" : "password"}
+                className="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                placeholder="Enter your password"
+              />
+              <span onClick={handleShow}>
+                {show ? <BiShow /> : <BiHide />}
+              </span>
+            </div>
+
+            <div className="mb-3 d-flex ">
+              <input
+                type={show ? "text" : "password"}
+                className="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                placeholder="Confirm your password"
+              />
+              <span onClick={handleShow}>
+                {show ? <BiShow /> : <BiHide />}
+              </span>
+            </div>
+
+            <button
+              type="submit"
+              className="btn btn-outline-warning w-100 mt-4"
+            >
+              Sign Up
+            </button>
+            <div className="d-flex">
+              <p className="m-1">Registered?</p>
+              <Link className="m-1" to="/login">
+                sign in
+              </Link>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   );
 };
