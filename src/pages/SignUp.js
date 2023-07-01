@@ -51,7 +51,7 @@ const SignUp = () => {
       </nav>
       <div className="pt-5 w-50 container d-flex mx-auto text-center ">
         <div
-          style={{ height: 396 }}
+          style={{ height: 394 }}
           className="w-25 mt-5 bg-warning d-none d-md-block"
         >
           <h5 className=" pt-5" />
@@ -63,6 +63,7 @@ const SignUp = () => {
               alt=""
             />
           </Link>
+          <h6 className="mt-3">Mithila's Outlet</h6>
           <p className=" mt-4">The best online shop..</p>
         </div>
         <div className="mt-5 w-75 shadow-lg p-3 mb-5 bg-body rounded">
@@ -115,7 +116,7 @@ const SignUp = () => {
 
             <button
               type="submit"
-              className="btn btn-outline-warning w-100 mt-4"
+              className="btn btn-outline-warning w-100 mt-4 mb-2"
             >
               Sign Up
             </button>

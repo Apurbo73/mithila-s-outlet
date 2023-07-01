@@ -41,7 +41,7 @@ const Login = () => {
           </div>
         </div>
       </nav>
-      <div className="pt-5 w-50 container d-flex mx-auto text-center ">
+      <div className="pt-5 mt-5 w-50 container d-flex mx-auto text-center ">
         <div
           style={{ height: 300 }}
           className="w-25 mt-5 bg-warning d-none d-md-block"
@@ -55,12 +55,14 @@ const Login = () => {
               alt=""
             />
           </Link>
+          <h6 className="mt-3">Mithila's Outlet</h6>
+
           <p className=" mt-4">The best online shop..</p>
         </div>
 
         <div className=" mt-5 w-75 shadow-lg p-3 mb-5 bg-body rounded ">
           <form className="">
-            <h3 className="text-center mb-4">Mithila's Outlet</h3>
+            <h4 className="text-center mb-4">Welcome..</h4>
             <div className="mb-3">
               <input
                 type="email"

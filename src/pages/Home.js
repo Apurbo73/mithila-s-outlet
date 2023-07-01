@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Carousel from "./Carousel";
 const image1 =
   "https://rukminim1.flixcart.com/flap/128/128/image/29327f40e9c4d26b.png?q=100";
 const image2 =
@@ -75,59 +76,63 @@ const Home = () => {
         </div>
       </nav>
 
-      {/* simple  design */}
+      {/* simple  design starts*/}
       <div className="d-none d-md-block">
-      <div className="mt-5 pt-5 d-flex  container">
-        <div className="m-1">
-          <img src={image1} alt="" />
-          <p className="btn btn-outline-warning p-1 w-50 mx-auto rounded text-dark">
-            Grocery
-          </p>
-        </div>
-        <div className="m-1">
-          <img src={image2} alt="" />
-          <p className="btn btn-outline-warning p-1 w-50 mx-auto rounded text-dark">
-            Mobile
-          </p>
-        </div>
-        <div className="m-1">
-          <img src={image3} alt="" />
-          <p className="btn btn-outline-warning p-1 w-50 mx-auto rounded text-dark">
-            Fashion
-          </p>
-        </div>
-        <div className="m-1">
-          <img src={image4} alt="" />
-          <p className="btn btn-outline-warning p-1  mx-auto rounded text-dark">
-            Electronics
-          </p>
-        </div>
-        <div className="m-1">
-          <img src={image5} alt="" />
-          <p className="btn btn-outline-warning p-1 w-50 mx-auto rounded text-dark">
-            Home
-          </p>
-        </div>
-        <div className="m-1">
-          <img src={image6} alt="" />
-          <p className="btn btn-outline-warning p-1  mx-auto rounded text-dark">
-            Appliances
-          </p>
-        </div>
-        <div className="m-1">
-          <img src={image7} alt="" />
-          <p className="btn btn-outline-warning p-1 w-50 mx-auto rounded text-dark">
-            Travel
-          </p>
-        </div>
-        <div className="m-1">
-          <img src={image8} alt="" />
-          <p className="btn btn-outline-warning p-1  mx-auto rounded text-dark">
-            Baby Products
-          </p>
+        <div className="mt-5 pt-5 d-flex  container">
+          <div className="m-1">
+            <img src={image1} alt="" />
+            <p className="btn btn-outline-warning p-1 w-50 mx-auto rounded text-dark">
+              Grocery
+            </p>
+          </div>
+          <div className="m-1">
+            <img src={image2} alt="" />
+            <p className="btn btn-outline-warning p-1 w-50 mx-auto rounded text-dark">
+              Mobile
+            </p>
+          </div>
+          <div className="m-1">
+            <img src={image3} alt="" />
+            <p className="btn btn-outline-warning p-1 w-50 mx-auto rounded text-dark">
+              Fashion
+            </p>
+          </div>
+          <div className="m-1">
+            <img src={image4} alt="" />
+            <p className="btn btn-outline-warning p-1  mx-auto rounded text-dark">
+              Electronics
+            </p>
+          </div>
+          <div className="m-1">
+            <img src={image5} alt="" />
+            <p className="btn btn-outline-warning p-1 w-50 mx-auto rounded text-dark">
+              Home
+            </p>
+          </div>
+          <div className="m-1">
+            <img src={image6} alt="" />
+            <p className="btn btn-outline-warning p-1  mx-auto rounded text-dark">
+              Appliances
+            </p>
+          </div>
+          <div className="m-1">
+            <img src={image7} alt="" />
+            <p className="btn btn-outline-warning p-1 w-50 mx-auto rounded text-dark">
+              Travel
+            </p>
+          </div>
+          <div className="m-1">
+            <img src={image8} alt="" />
+            <p className="btn btn-outline-warning p-1  mx-auto rounded text-dark">
+              Baby Products
+            </p>
+          </div>
+          
         </div>
       </div>
-      </div>
+      {/* simple  design ends*/}
+
+      <Carousel />
     </div>
   );
 };

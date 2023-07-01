@@ -48,7 +48,7 @@ const About = () => {
         style={{ width: "22rem" }}
       >
         <img
-          style={{ height: 290, padding: 10 }}
+          style={{ height: 300, padding: 10 }}
           src={image}
           className="card-img-top bg-warning"
           alt="..."
