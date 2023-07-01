@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div>
-      <div className="text-center bg-dark p-3 ">
+    <div style={{marginTop:150}}>
+      <div className="text-center bg-dark p-4 ">
         <Link
           className="text-light"
           style={{ textDecoration: "none" }}

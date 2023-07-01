@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { BiShow } from "react-icons/bi";
+import { BiHide } from "react-icons/bi";
 
 const SignUp = () => {
   return (
@@ -42,7 +44,7 @@ const SignUp = () => {
         </div>
       </nav>
 
-      <form className="mx-auto w-50 mt-5  shadow-lg p-3 mb-5 bg-body rounded">
+      <form className="mx-auto w-50 mt-5 mb-5 shadow-lg p-3  bg-body rounded">
         <h3 className="text-center mb-3">Fill Up The Form</h3>
         <div className="mb-3">
           <input
@@ -62,7 +64,7 @@ const SignUp = () => {
             placeholder="Enter your email"
           />
         </div>
-        <div className="mb-3">
+        <div className="mb-3 d-flex ">
           <input
             type="password"
             className="form-control"
@@ -70,8 +72,20 @@ const SignUp = () => {
             aria-describedby="emailHelp"
             placeholder="Enter your password"
           />
+          <span>
+            <BiShow /> <BiHide />
+          </span>
         </div>
-        <button type="submit" className="btn btn-warning w-100">
+        <div className="mb-3">
+          <input
+            type="password"
+            className="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            placeholder="Confirm your password"
+          />
+        </div>
+        <button type="submit" className="btn btn-warning w-100 mb-3">
           Sign Up
         </button>
         <div className="d-flex">

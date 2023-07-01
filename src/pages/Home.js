@@ -1,11 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+const image1 =
+  "https://rukminim1.flixcart.com/flap/128/128/image/29327f40e9c4d26b.png?q=100";
+const image2 =
+  "https://rukminim1.flixcart.com/flap/128/128/image/22fddf3c7da4c4f4.png?q=100";
+const image3 =
+  "https://rukminim1.flixcart.com/flap/128/128/image/82b3ca5fb2301045.png?q=100";
+const image4 =
+  "https://rukminim1.flixcart.com/flap/128/128/image/69c6589653afdb9a.png?q=100";
+const image5 =
+  "https://rukminim1.flixcart.com/flap/128/128/image/ee162bad964c46ae.png?q=100";
+const image6 =
+  "https://rukminim1.flixcart.com/flap/128/128/image/0ff199d1bd27eb98.png?q=100";
+const image7 =
+  "https://rukminim1.flixcart.com/flap/128/128/image/71050627a56b4693.png?q=100";
+const image8 =
+  "https://rukminim1.flixcart.com/flap/128/128/image/dff3f7adcf3a90c6.png?q=100";
 const Home = () => {
-
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div className="container-fluid">
           <Link to="/" className="navbar-brand text-warning" href="#">
             Mithila's Outlet
@@ -39,7 +53,7 @@ const Home = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to='/login' className="nav-link" >
+                <Link to="/login" className="nav-link">
                   Login
                 </Link>
               </li>
@@ -60,6 +74,60 @@ const Home = () => {
           </div>
         </div>
       </nav>
+
+      {/* simple  design */}
+      <div className="d-none d-md-block">
+      <div className="mt-5 pt-5 d-flex  container">
+        <div className="m-1">
+          <img src={image1} alt="" />
+          <p className="btn btn-outline-warning p-1 w-50 mx-auto rounded text-dark">
+            Grocery
+          </p>
+        </div>
+        <div className="m-1">
+          <img src={image2} alt="" />
+          <p className="btn btn-outline-warning p-1 w-50 mx-auto rounded text-dark">
+            Mobile
+          </p>
+        </div>
+        <div className="m-1">
+          <img src={image3} alt="" />
+          <p className="btn btn-outline-warning p-1 w-50 mx-auto rounded text-dark">
+            Fashion
+          </p>
+        </div>
+        <div className="m-1">
+          <img src={image4} alt="" />
+          <p className="btn btn-outline-warning p-1  mx-auto rounded text-dark">
+            Electronics
+          </p>
+        </div>
+        <div className="m-1">
+          <img src={image5} alt="" />
+          <p className="btn btn-outline-warning p-1 w-50 mx-auto rounded text-dark">
+            Home
+          </p>
+        </div>
+        <div className="m-1">
+          <img src={image6} alt="" />
+          <p className="btn btn-outline-warning p-1  mx-auto rounded text-dark">
+            Appliances
+          </p>
+        </div>
+        <div className="m-1">
+          <img src={image7} alt="" />
+          <p className="btn btn-outline-warning p-1 w-50 mx-auto rounded text-dark">
+            Travel
+          </p>
+        </div>
+        <div className="m-1">
+          <img src={image8} alt="" />
+          <p className="btn btn-outline-warning p-1  mx-auto rounded text-dark">
+            Baby Products
+          </p>
+        </div>
+      </div>
+      </div>
     </div>
   );
 };
