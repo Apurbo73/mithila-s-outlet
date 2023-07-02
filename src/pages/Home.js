@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Carousel from "./Carousel";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import cart from "../images/cart.jpg";
 import AllProducts from "../component/products/AllProducts";
+import FilterPage from "../component/filter/FilterPage";
+import SearchPage from "../component/search/SearchPage";
 const image1 =
   "https://rukminim1.flixcart.com/flap/128/128/image/29327f40e9c4d26b.png?q=100";
 const image2 =
@@ -22,6 +26,15 @@ const image8 =
 const Home = ({ allData }) => {
   const [allProducts, setAllProducts] = useState(allData);
   const [filteredProducts, setFilteredProducts] = useState(allData);
+  //handle Search:
+  const handleSearch = searchText => {
+    let text = searchText.toLowerCase();
+    const searchedProduct = allProducts.filter(data => {
+      const newProduct = data.name.toLowerCase();
+      return newProduct.includes(text);
+    });
+    setFilteredProducts(searchedProduct);
+  };
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -74,14 +87,8 @@ const Home = ({ allData }) => {
                 </p>
               </li>
             </ul>
-            <form className="d-flex m-3 ">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-            </form>
+            {/* searching process: sending methods from child to parent. child is searchpage, parent is home page here*/}
+            <SearchPage onSearch={handleSearch} />
           </div>
         </div>
       </nav>
@@ -143,7 +150,18 @@ const Home = ({ allData }) => {
 
       <Carousel />
 
-      {allProducts && <AllProducts allProducts={filteredProducts} />}
+      {/* filter products starts*/}
+      {/* <div className="col-lg-3 col-md-2">
+        <FilterPage />
+      </div> */}
+      {/* filter products ends*/}
+
+      <div className="">
+        <div className="">
+          <ToastContainer />
+          {allProducts && <AllProducts allProducts={filteredProducts} />}
+        </div>
+      </div>
     </div>
   );
 };
