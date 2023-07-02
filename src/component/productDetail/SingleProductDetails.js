@@ -45,7 +45,7 @@ const SingleProductDetails = ({ singleProduct }) => {
                 Price: {price} Taka
               </p>
               <p className="card-text">
-                Category :{category}{" "}
+                Category :{category}
               </p>
               <p className="card-text">
                 Seller: {seller}
