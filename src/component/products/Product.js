@@ -1,7 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Product = ({ product }) => {
-  const { name, price, seller, image, category } = product;
+  const { name, price, seller, image, category,id } = product;
   return (
     <div className="mx-auto ">
       <div
@@ -27,9 +28,9 @@ const Product = ({ product }) => {
           <p className="card-text">
             Seller: {seller}
           </p>
-          <a href="#" className="btn btn-dark w-100">
+          <Link to={`/products/detail/${id}`} className="btn btn-dark w-100">
             See detail
-          </a>
+          </Link>
         </div>
       </div>
     </div>

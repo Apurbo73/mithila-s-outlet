@@ -5,9 +5,14 @@ export const apiSlice = createApi({
     baseUrl: "https://mithilas-outlet.onrender.com"
   }),
   endpoints: builder => ({
+    //get all products:
     getGrocery: builder.query({
       query: () => `/products`
+    }),
+    //get single product details:
+    getSingleProduct: builder.query({
+      query: id => `/products/${id}`
     })
   })
 });
-export const { useGetGroceryQuery } = apiSlice;
+export const { useGetGroceryQuery, useGetSingleProductQuery } = apiSlice;

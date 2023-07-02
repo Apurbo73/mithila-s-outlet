@@ -1,11 +1,20 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { BsGithub } from "react-icons/bs";
-import image from "../images/apu.png";
-const About = () => {
+import SingleProductDetails from "./SingleProductDetails";
+import { Link, useParams } from "react-router-dom";
+import { useGetSingleProductQuery } from "../../features/apiSlice";
+
+const SingleProduct = () => {
+  const { id } = useParams();
+  const {
+    data: singleProduct,
+    isError,
+    isLoadng,
+    error
+  } = useGetSingleProductQuery(id);
   return (
-    <div className="">
+    <div>
       {/* nav section starts */}
+
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
           <Link to="/" className="navbar-brand text-warning" href="#">
@@ -46,37 +55,12 @@ const About = () => {
       </nav>
       {/* nav section ends */}
 
-      <div
-        className="card mx-auto mt-5 p-3 text-center shadow-lg p-3 mb-5 bg-body rounded"
-        style={{ width: "22rem" }}
-      >
-        <img
-          style={{ height: 300, padding: 10 }}
-          src={image}
-          className="card-img-top bg-warning"
-          alt="..."
-        />
-        <div className="card-body">
-          <p className="card-title mb-3">Developed by:</p>
-          <h5 className="card-title">Apurbo Deb Nath</h5>
-          <p className="card-text">Web Developer From Sylhet</p>
-          <p className="card-text">Email: apurbodebnath50@gmail.com</p>
-          <p className="card-text">Mobile: 01774573076</p>
+<div className="mx-auto ">
+{singleProduct && <SingleProductDetails singleProduct={singleProduct} />}
 
-          <Link
-            style={{ textDecoration: "none", fontSize: 25 }}
-            to="https://github.com/Apurbo73"
-            className="text-dark "
-          >
-            <BsGithub />
-          </Link>
-          <Link to="/" className="btn btn-warning w-100 mt-3">
-            Back To Home
-          </Link>
-        </div>
-      </div>
+</div>
     </div>
   );
 };
 
-export default About;
+export default SingleProduct;

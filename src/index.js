@@ -10,6 +10,7 @@ import About from "./pages/About";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Footer from "./pages/Footer";
+import SingleProduct from "./component/productDetail/SingleProduct";
 
 const container = document.getElementById("root");
 const root = createRoot(container);
@@ -22,6 +23,8 @@ root.render(
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
         <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/products/detail/:id" element={<SingleProduct />} />
+
       </Routes>
       <Footer />
     </Provider>
