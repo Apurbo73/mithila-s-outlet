@@ -1,11 +1,19 @@
 import React from "react";
 
 const Product = ({ product }) => {
-  const { name, price, seller, image } = product;
+  const { name, price, seller, image, category } = product;
   return (
-    <div  className="mx-auto ">
-      <div  className="card  shadow-lg p-3 mb-5 bg-body rounded " style={{ width: "15rem",height:455 }}>
-        <img style={{height:240}} src={image} className="card-img-top p-2 image   rounded" alt="..." />
+    <div className="mx-auto ">
+      <div
+        className="card  shadow-lg p-3 mb-5 bg-body rounded "
+        style={{ width: "15rem", height: 455 }}
+      >
+        <img
+          style={{ height: 240 }}
+          src={image}
+          className="card-img-top p-2 image   rounded"
+          alt="..."
+        />
         <div className="card-body ">
           <h5 className="card-title">
             {name}
@@ -13,6 +21,9 @@ const Product = ({ product }) => {
           <p className="card-text">
             Price: {price} Taka
           </p>
+          {/* <p className="card-text">
+            Category: {category}
+          </p> */}
           <p className="card-text">
             Seller: {seller}
           </p>

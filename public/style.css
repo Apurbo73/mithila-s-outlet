@@ -2,7 +2,7 @@ body{
     background-color: rgb(238, 244, 252);
 }
 .image:hover{
-    transform: scale(1.2);
+    transform: scale(1.1);
     transition: 0.5s ease-in-out;
 }
 .image-card{
