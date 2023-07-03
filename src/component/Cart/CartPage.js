@@ -84,7 +84,7 @@ const CartPage = () => {
             Total Balance: {total(cartProducts)} Taka
           </h6>
           <p>
-            Total Products: {cartProducts && cartProducts.length}
+            Total Item : {cartProducts && cartProducts.length}
           </p>
           <button className="btn btn-dark">Check Out Now</button>
           

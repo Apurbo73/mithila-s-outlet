@@ -14,17 +14,6 @@ const SeeCartList = ({ cartProduct }) => {
     descsription
   } = cartProduct;
   const [removeFromCart, { isLoading, error }] = useRemoveFromCartMutation();
-  // console.log(quantity);
-  // {
-  //   quantity &&
-  //     quantity.map(total => {
-  //       let actualQuantity = 0;
-  //       actualQuantity = actualQuantity + total;
-  //     });
-  //   console.log(actualQuantity);
-  // }
-  const totalQuantity = Object.values(quantity);
-console.log(totalQuantity)
 
   //handle Delete:
   const handleDelete = e => {
@@ -58,7 +47,7 @@ console.log(totalQuantity)
                 </p>
                 <p className="card-text">
                   <small className="text-muted">
-                    Quantity: {totalQuantity}
+                    Quantity: {quantity}
                   </small>
                 </p>
                 <p className="card-text">

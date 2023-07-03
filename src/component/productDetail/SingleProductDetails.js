@@ -49,8 +49,8 @@ const SingleProductDetails = ({ singleProduct }) => {
       name,
       category,
       image,
-      price,
-      quantity:{count},
+      quantity: count,
+      price: Number(price) * count,
       seller,
       descsription
     });
@@ -72,6 +72,7 @@ const SingleProductDetails = ({ singleProduct }) => {
       setCount(1);
     }
   };
+  // console.log(count)
   return (
     <div className=" mt-5  container">
       <ToastContainer />
