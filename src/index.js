@@ -13,6 +13,7 @@ import Footer from "./pages/Footer";
 import SingleProduct from "./component/productDetail/SingleProduct";
 import AddProduct from "./component/Add/AddProduct";
 import EditPage from "./component/Edit/EditPage";
+import CartPage from "./component/Cart/CartPage";
 
 const container = document.getElementById("root");
 const root = createRoot(container);
@@ -28,8 +29,7 @@ root.render(
         <Route path="/products/detail/:id" element={<SingleProduct />} />
         <Route path="/products/add/" element={<AddProduct />} />
         <Route path="/products/edit-detail/:id" element={<EditPage />} />
-
-
+        <Route path="/cart" element={<CartPage />} />
 
       </Routes>
       <Footer />

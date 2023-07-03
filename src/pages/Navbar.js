@@ -69,9 +69,9 @@ const Navbar = props => {
                 </Link>
               </li>
               <li className="nav-item ">
-                <p className="nav-link " href="#">
+                <Link to='/cart' className="nav-link " href="#">
                   Cart <span className="text-warning">0</span>
-                </p>
+                </Link>
               </li>
             </ul>
             {/* searching process: sending methods from child to parent. child is navbar, parent is home page here*/}
