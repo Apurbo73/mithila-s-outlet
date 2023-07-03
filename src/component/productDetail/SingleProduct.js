@@ -1,7 +1,10 @@
 import React from "react";
 import SingleProductDetails from "./SingleProductDetails";
 import { Link, useParams } from "react-router-dom";
-import { useGetSingleProductQuery } from "../../features/apiSlice";
+import {
+  useGetCartListQuery,
+  useGetSingleProductQuery
+} from "../../features/apiSlice";
 
 const SingleProduct = () => {
   const { id } = useParams();
@@ -11,6 +14,8 @@ const SingleProduct = () => {
     isLoadng,
     error
   } = useGetSingleProductQuery(id);
+  // getting all products from the cart here to show the length of cart list on navbar:
+  const { data: cartProducts } = useGetCartListQuery();
   return (
     <div>
       {/* nav section starts */}
@@ -51,7 +56,9 @@ const SingleProduct = () => {
               </li>
               <li className="nav-item ">
                 <Link to="/cart" className="nav-link " href="#">
-                  Cart <span className="text-warning">0</span>
+                  Cart <span className="text-warning">
+                    {cartProducts && cartProducts.length}
+                  </span>
                 </Link>
               </li>
             </ul>

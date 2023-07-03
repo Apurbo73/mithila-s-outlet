@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import cart from "../images/cart.jpg";
 import { AiOutlinePlusCircle } from "react-icons/ai";
+import { useGetCartListQuery } from "../features/apiSlice";
 
 const Navbar = props => {
   const [searchValue, setSearch] = useState("");
@@ -12,6 +13,15 @@ const Navbar = props => {
     },
     [searchValue, props]
   );
+
+// getting all products from the cart here to show the length of cart list on navbar:
+const {
+  data: cartProducts,
+  isLoading,
+  isError,
+  error
+} = useGetCartListQuery();
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -70,7 +80,7 @@ const Navbar = props => {
               </li>
               <li className="nav-item ">
                 <Link to='/cart' className="nav-link " href="#">
-                  Cart <span className="text-warning">0</span>
+                  Cart <span className="text-warning">{cartProducts && cartProducts.length}</span>
                 </Link>
               </li>
             </ul>
