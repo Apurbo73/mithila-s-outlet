@@ -1,8 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { BiEdit } from "react-icons/bi";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { AiOutlinePlusCircle } from "react-icons/ai";
+import { LuMinusCircle } from "react-icons/lu";
 import {
   useAddToCartMutation,
   useDeleteProductMutation
@@ -48,12 +50,28 @@ const SingleProductDetails = ({ singleProduct }) => {
       category,
       image,
       price,
+      quantity:{count},
       seller,
       descsription
     });
     toast(` ${name} is added to cart`);
   };
 
+  // handle quantity  of products:
+  let [count, setCount] = useState(1);
+  //handle Increment Count:
+  const handleIncrement = e => {
+    setCount(count + 1);
+    // console.log(count);
+  };
+  //handle Decrement Count:
+  let handleDecrement = () => {
+    setCount(count - 1);
+    if (count === 1) {
+      toast("Quantity can't be less than 1");
+      setCount(1);
+    }
+  };
   return (
     <div className=" mt-5  container">
       <ToastContainer />
@@ -66,14 +84,23 @@ const SingleProductDetails = ({ singleProduct }) => {
               alt="..."
             />
             <div className="">
-              <Link
-                className="btn btn-outline-warning m-1"
-                onClick={handleAddToCart}
-              >
+              <Link className="btn btn-warning m-1" onClick={handleAddToCart}>
                 Add To Cart
               </Link>
-              <button className="btn btn-outline-dark m-1">
-                Remove From Cart
+              <button className="btn btn-dark m-1">
+                Quantity : {count}
+              </button>
+              <button
+                className="btn btn-outline-warning m-1"
+                onClick={handleIncrement}
+              >
+                <AiOutlinePlusCircle />
+              </button>
+              <button
+                className="btn btn-outline-dark m-1"
+                onClick={handleDecrement}
+              >
+                <LuMinusCircle />
               </button>
             </div>
           </div>

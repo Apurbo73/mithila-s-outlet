@@ -73,7 +73,7 @@ const CartPage = () => {
         <div className="col-7 ">
           {cartProducts &&
             cartProducts.map(cartProduct =>
-              <SeeCartList cartProduct={cartProduct} />
+              <SeeCartList key={cartProduct.id} cartProduct={cartProduct} />
             )}
         </div>
         <div
@@ -87,6 +87,7 @@ const CartPage = () => {
             Total Products: {cartProducts && cartProducts.length}
           </p>
           <button className="btn btn-dark">Check Out Now</button>
+          
         </div>
       </div>
     </div>
