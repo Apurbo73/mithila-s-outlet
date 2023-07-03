@@ -12,6 +12,7 @@ import SignUp from "./pages/SignUp";
 import Footer from "./pages/Footer";
 import SingleProduct from "./component/productDetail/SingleProduct";
 import AddProduct from "./component/Add/AddProduct";
+import EditPage from "./component/Edit/EditPage";
 
 const container = document.getElementById("root");
 const root = createRoot(container);
@@ -26,6 +27,8 @@ root.render(
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/products/detail/:id" element={<SingleProduct />} />
         <Route path="/products/add/" element={<AddProduct />} />
+        <Route path="/products/edit-detail/:id" element={<EditPage />} />
+
 
 
       </Routes>

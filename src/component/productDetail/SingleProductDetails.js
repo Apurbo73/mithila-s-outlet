@@ -5,7 +5,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 
 import { LuMinusCircle } from "react-icons/lu";
 import { useDeleteProductMutation } from "../../features/apiSlice";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const SingleProductDetails = ({ singleProduct }) => {
   const navigate = useNavigate();
   const {
@@ -69,9 +69,9 @@ const SingleProductDetails = ({ singleProduct }) => {
               </p>
 
               <div>
-                <button className="btn btn-outline-warning m-1">
+                <Link to={`/products/edit-detail/${id}`} className="btn btn-outline-warning m-1">
                   Edit Detail<BiEdit />
-                </button>
+                </Link>
                 <button
                   className="btn btn-outline-dark m-1"
                   onClick={handleDelete}

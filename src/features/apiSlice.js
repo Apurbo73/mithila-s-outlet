@@ -32,6 +32,16 @@ export const apiSlice = createApi({
         method: "DELETE"
       }),
       invalidatesTags: ["products", "singleProduct"]
+    }),
+    //update product details:
+    updateProduct: builder.mutation({
+      query: ({ id, data }) => ({
+        url: `/products/${id}`,
+        method: "PATCH",
+        body: data
+      }),
+      invalidatesTags: ["products", "singleProduct"]
+
     })
   })
 });
@@ -39,5 +49,6 @@ export const {
   useGetGroceryQuery,
   useGetSingleProductQuery,
   useAddProductMutation,
-  useDeleteProductMutation
+  useDeleteProductMutation,
+  useUpdateProductMutation
 } = apiSlice;
