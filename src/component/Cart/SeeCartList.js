@@ -1,6 +1,7 @@
 import React from "react";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { LuMinusCircle } from "react-icons/lu";
+import { useRemoveFromCartMutation } from "../../features/apiSlice";
 
 const SeeCartList = ({ cartProduct }) => {
   // console.log(cartProduct);
@@ -13,7 +14,13 @@ const SeeCartList = ({ cartProduct }) => {
     id,
     descsription
   } = cartProduct;
+  const [removeFromCart, { isLoading, error }] = useRemoveFromCartMutation();
 
+  //handle Delete:
+  const handleDelete = e => {
+    e.preventDefault();
+    removeFromCart(id);
+  };
   return (
     <div>
       <div>
@@ -51,15 +58,21 @@ const SeeCartList = ({ cartProduct }) => {
                 </p>
               </div>
 
-           <div className="mb-2">
-           <button className="btn btn-dark m-1">
-                <AiOutlinePlusCircle />
-              </button>
-              <button className="btn btn-secondary m-1">0</button>
-              <button className="btn btn-warning m-1">
-                <LuMinusCircle />
-              </button>
-           </div>
+              <div className="mb-2">
+                <button className="btn btn-dark m-1">
+                  <AiOutlinePlusCircle />
+                </button>
+                <button className="btn btn-secondary m-1">0</button>
+                <button className="btn btn-warning m-1">
+                  <LuMinusCircle />
+                </button>
+                <button
+                  className="btn btn-outline-danger m-1"
+                  onClick={handleDelete}
+                >
+                  Remove From Cart
+                </button>
+              </div>
             </div>
           </div>
         </div>

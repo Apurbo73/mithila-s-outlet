@@ -86,6 +86,7 @@ const CartPage = () => {
           <p>
             Total Products: {cartProducts && cartProducts.length}
           </p>
+          <button className="btn btn-dark">Check Out Now</button>
         </div>
       </div>
     </div>
