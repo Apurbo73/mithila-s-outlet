@@ -11,6 +11,22 @@ const CartPage = () => {
     error
   } = useGetCartListQuery();
   //   console.log(cartProduct)
+
+  //calculating  balance:
+
+  const total = cartProducts => {
+    let balance = 0;
+
+    {
+      cartProducts &&
+        cartProducts.forEach(b => {
+          const { price } = b;
+          balance = balance + Number(price);
+        });
+    }
+    return balance;
+  };
+
   return (
     <div>
       {/* nav section starts */}
@@ -53,17 +69,22 @@ const CartPage = () => {
         </div>
       </nav>
       {/* nav section ends */}
-      <div className="d-flex container">
+      <div className="d-flex flex-wrap container">
         <div className="col-7 ">
           {cartProducts &&
             cartProducts.map(cartProduct =>
               <SeeCartList cartProduct={cartProduct} />
             )}
         </div>
-        <div style={{height:300}} className="mt-4  shadow-lg p-3 mb-5 bg-body rounded ">
-          <h5>Total Balance</h5>
+        <div
+          style={{ height: 200 }}
+          className="mt-4  shadow-lg p-4 mb-5 bg-warning rounded col-5 text-center"
+        >
+          <h6>
+            Total Balance: {total(cartProducts)} Taka
+          </h6>
           <p>
-            Total Products:{cartProducts.length}
+            Total Products: {cartProducts && cartProducts.length}
           </p>
         </div>
       </div>

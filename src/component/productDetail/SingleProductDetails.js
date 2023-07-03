@@ -1,10 +1,8 @@
 import React, { useEffect } from "react";
-import { AiOutlinePlusCircle } from "react-icons/ai";
 import { BiEdit } from "react-icons/bi";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { LuMinusCircle } from "react-icons/lu";
 import {
   useAddToCartMutation,
   useDeleteProductMutation

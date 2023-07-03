@@ -4,7 +4,7 @@ export const apiSlice = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: "https://mithilas-outlet.onrender.com"
   }),
-  tagTypes: ["products", "singleProduct"],
+  tagTypes: ["products", "singleProduct", "cartProducts"],
   endpoints: builder => ({
     //get all products:
     getGrocery: builder.query({
@@ -42,16 +42,19 @@ export const apiSlice = createApi({
       }),
       invalidatesTags: ["products", "singleProduct"]
     }),
+    // get all products added to cart:
+    getCartList: builder.query({
+      query: () => `/cart`,
+      providesTags: ["cartProducts"]
+    }),
     //add to cart:
     addToCart: builder.mutation({
       query: data => ({
         url: `/cart`,
         method: "POST",
         body: data
-      })
-    }),
-    getCartList: builder.query({
-      query: () => `/cart`
+      }),
+      invalidatesTags: ["cartProducts"]
     })
   })
 });

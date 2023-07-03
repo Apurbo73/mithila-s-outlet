@@ -49,16 +49,21 @@ const SingleProduct = () => {
                   Hello
                 </a>
               </li>
+              <li className="nav-item ">
+                <Link to="/cart" className="nav-link " href="#">
+                  Cart <span className="text-warning">0</span>
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
       </nav>
       {/* nav section ends */}
 
-<div className="mx-auto ">
-{singleProduct && <SingleProductDetails singleProduct={singleProduct} />}
-
-</div>
+      <div className="mx-auto ">
+        {singleProduct &&
+          <SingleProductDetails singleProduct={singleProduct} />}
+      </div>
     </div>
   );
 };
