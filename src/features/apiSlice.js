@@ -4,7 +4,7 @@ export const apiSlice = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: "https://mithilas-outlet.onrender.com"
   }),
-  tagTypes: ["products"],
+  tagTypes: ["products", "singleProduct"],
   endpoints: builder => ({
     //get all products:
     getGrocery: builder.query({
@@ -13,7 +13,8 @@ export const apiSlice = createApi({
     }),
     //get single product details:
     getSingleProduct: builder.query({
-      query: id => `/products/${id}`
+      query: id => `/products/${id}`,
+      providesTags: ["singleProduct"]
     }),
     //add new product:
     addProduct: builder.mutation({
@@ -23,11 +24,20 @@ export const apiSlice = createApi({
         body: data
       }),
       invalidatesTags: ["products"]
+    }),
+    //delete product:
+    deleteProduct: builder.mutation({
+      query: id => ({
+        url: `/products/${id}`,
+        method: "DELETE"
+      }),
+      invalidatesTags: ["products", "singleProduct"]
     })
   })
 });
 export const {
   useGetGroceryQuery,
   useGetSingleProductQuery,
-  useAddProductMutation
+  useAddProductMutation,
+  useDeleteProductMutation
 } = apiSlice;

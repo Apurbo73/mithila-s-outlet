@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { BiEdit } from "react-icons/bi";
 import { RiDeleteBin6Line } from "react-icons/ri";
 
 import { LuMinusCircle } from "react-icons/lu";
+import { useDeleteProductMutation } from "../../features/apiSlice";
+import { useNavigate } from "react-router-dom";
 const SingleProductDetails = ({ singleProduct }) => {
+  const navigate = useNavigate();
   const {
     id,
     name,
@@ -14,22 +17,36 @@ const SingleProductDetails = ({ singleProduct }) => {
     seller,
     descsription
   } = singleProduct;
+  const [
+    deleteProduct,
+    { isLoading, isError, error, isSuccess }
+  ] = useDeleteProductMutation();
+  //handle Delete:
+  const handleDelete = e => {
+    e.preventDefault();
+    deleteProduct(id);
+  };
+  useEffect(() => {
+    {
+      isSuccess && navigate("/");
+    }
+  }, [isSuccess]);
   return (
     <div className=" mt-5  container">
       <div className="card mb-3 shadow-lg p-3 mb-5 bg-body rounded">
         <div className="row g-0">
-          <div className="col-md-6">
+          <div className="col-md-6 text-center">
             <img
               src={image}
               className="img-fluid rounded-start p-5 image"
               alt="..."
             />
-            <div className="text-center">
+            <div className="">
               <button className="btn btn-outline-warning m-1">
-                <AiOutlinePlusCircle />
+                Add To Cart
               </button>
               <button className="btn btn-outline-dark m-1">
-                <LuMinusCircle />
+                Remove From Cart
               </button>
             </div>
           </div>
@@ -53,10 +70,13 @@ const SingleProductDetails = ({ singleProduct }) => {
 
               <div>
                 <button className="btn btn-outline-warning m-1">
-                  <BiEdit />
+                  Edit Detail<BiEdit />
                 </button>
-                <button className="btn btn-outline-dark m-1">
-                  <RiDeleteBin6Line />
+                <button
+                  className="btn btn-outline-dark m-1"
+                  onClick={handleDelete}
+                >
+                  Delete Product<RiDeleteBin6Line />
                 </button>
               </div>
             </div>

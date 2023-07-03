@@ -53,6 +53,7 @@ const AddProductForm = () => {
             className="form-control"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
+            required
             value={name}
             onChange={e => {
               setName(e.target.value);
@@ -62,6 +63,7 @@ const AddProductForm = () => {
         <div className="mb-3">
           <input
             type="text"
+            required
             placeholder="Product category"
             className="form-control"
             id="exampleInputEmail1"
@@ -75,6 +77,7 @@ const AddProductForm = () => {
         <div className="mb-3">
           <input
             type="text"
+            required
             placeholder="Product price"
             className="form-control"
             id="exampleInputEmail1"
@@ -88,6 +91,7 @@ const AddProductForm = () => {
         <div className="mb-3">
           <input
             type="text"
+            required
             placeholder="Product seller name"
             className="form-control"
             id="exampleInputEmail1"
@@ -101,6 +105,7 @@ const AddProductForm = () => {
         <div className="mb-3">
           <input
             type="text"
+            required
             placeholder="Product description"
             className="form-control"
             id="exampleInputEmail1"
@@ -114,6 +119,7 @@ const AddProductForm = () => {
         <div className="mb-3">
           <input
             type="text"
+            required
             placeholder="Product image link"
             className="form-control"
             id="exampleInputEmail1"
