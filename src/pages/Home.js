@@ -55,7 +55,7 @@ const Home = ({ allData }) => {
     <div>
       <Navbar onSearch={handleSearch} />
       {/* simple  design starts*/}
-      <div className="d-none d-md-block ">
+      <div className="d-none d-md-block col-12">
         <div className="mt-5 pt-5 d-flex  ">
           <div className=" ">
             <img className="image" src={image1} alt="" />
