@@ -27,6 +27,19 @@ const CartPage = () => {
     return balance;
   };
 
+  //calculating total quantity of products in cart:
+
+  const quantityOfproducts = cartProducts => {
+    let totalProducts = 0;
+    {
+      cartProducts &&
+        cartProducts.forEach(t => {
+          const { quantity } = t;
+          totalProducts = totalProducts + Number(quantity);
+        });
+    }
+    return totalProducts;
+  };
   return (
     <div>
       {/* nav section starts */}
@@ -86,8 +99,10 @@ const CartPage = () => {
           <p>
             Total Item : {cartProducts && cartProducts.length}
           </p>
+          <h6>
+            Total Products: {quantityOfproducts(cartProducts)}
+          </h6>
           <button className="btn btn-dark">Check Out Now</button>
-          
         </div>
       </div>
     </div>

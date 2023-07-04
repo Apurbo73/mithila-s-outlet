@@ -6,13 +6,13 @@ const Product = ({ product }) => {
   return (
     <div className="mx-auto ">
       <div
-        className="card  shadow-lg p-3 mb-5 bg-body rounded "
-        style={{ width: "15rem", height: 455 }}
+        className="card image-card  shadow-lg p-3 mb-5  rounded-25 "
+        style={{ width: "15rem", height: 400 }}
       >
         <img
           style={{ height: 240 }}
           src={image}
-          className="card-img-top p-2 image   rounded"
+          className="card-img-top p-3 image   rounded"
           alt="..."
         />
         <div className="card-body ">
@@ -25,9 +25,9 @@ const Product = ({ product }) => {
           {/* <p className="card-text">
             Category: {category}
           </p> */}
-          <p className="card-text">
+          {/* <p className="card-text">
             Seller: {seller}
-          </p>
+          </p> */}
           <Link to={`/products/detail/${id}`} className="btn btn-dark w-100">
             See detail
           </Link>
