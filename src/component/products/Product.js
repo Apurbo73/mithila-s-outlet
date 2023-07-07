@@ -35,8 +35,8 @@ const Product = ({ product }) => {
     //   </div>
     // </div>
 
-    <div className="col-12 col-md-3 col-lg-2">
-      <div className="card text-center text-dark  pb-2 mt-3">
+    <div className="col-12 col-md-3 col-lg-3">
+      <div className="card text-center text-dark card-bg pb-2 mt-3">
         <div className="card-body">
           <img
             style={{ height: 240 }}
@@ -51,9 +51,9 @@ const Product = ({ product }) => {
             <p className="card-text">
               Price: {price} Taka
             </p>
-            <p className="card-text">
+            {/* <p className="card-text">
               Category: {category}
-            </p>
+            </p> */}
             <p className="card-text">
               Seller: {seller}
             </p>

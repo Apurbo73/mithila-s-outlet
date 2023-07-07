@@ -162,9 +162,9 @@ const SignUp = () => {
                   setPass(e.target.value);
                 }}
               />
-              <span onClick={handleShow}>
+              {/* <span onClick={handleShow}>
                 {show ? <BiShow /> : <BiHide />}
-              </span>
+              </span> */}
             </div>
 
             <div className="mb-3 d-flex ">
@@ -180,9 +180,9 @@ const SignUp = () => {
                   setConfirmPass(e.target.value);
                 }}
               />
-              <span onClick={handleShow}>
+              {/* <span onClick={handleShow}>
                 {show ? <BiShow /> : <BiHide />}
-              </span>
+              </span> */}
             </div>
 
             <button

@@ -9,3 +9,15 @@ body{
     background-color: rgb(248, 238, 224);
     border-radius: 10px;
 }
+/* Link{
+text-decoration: none;
+color: antiquewhite;
+} */
+
+/* p:hover{
+    color: orange;
+} */
+
+.card-bg{
+    background-color: rgb(245, 232, 216);
+}
